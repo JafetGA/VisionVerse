@@ -1,0 +1,174 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 80px 1fr 80px;
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar main"
+        "sidebar footer";
+    gap: 0;
+    background-color: #e2e2e2;
+    transition: all 0.3s ease-in-out;
+}
+
+.container.sidebar-hidden {
+    grid-template-columns: 0 1fr;
+}
+
+.item {
+    background-color: #e2e2e2;
+    color: black;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.item:nth-child(1) { /* Header */
+    display: grid;
+    grid-area: header;
+    background-color: #2d343b;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease-in-out;
+    padding: 0 20px;
+}
+
+.item.header{
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+}
+
+.item.header-hidden {
+    grid-template-columns: 0 1fr;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.header-content img {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+#buttonMenuShow {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    display: none;
+    transition: transform 0.2s ease;
+}
+
+#buttonMenuShow:hover {
+    transform: scale(1.1);
+}
+
+#buttonMenuShow:hover img {
+    filter: brightness(90%);
+}
+
+#buttonMenuShow:active {
+    transform: scale(0.9);
+}
+
+
+.item:nth-child(2) { /* Sidebar */
+    background-color: #2d343b;
+    color: white;
+    grid-area: sidebar;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    width: 350px;
+}
+
+.sidebar-hidden.item:nth-child(2) {
+    width: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+.item.menu {
+    display: block;
+    text-align: center;
+    justify-content: center;
+}
+
+.hidden {
+    text-align: right;
+    margin-bottom: 50%;
+}
+
+.games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.games a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.games a:hover {
+    color: grey;
+}
+
+#buttonMenu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: transform 0.2s ease;
+}
+
+#buttonMenu:hover {
+    transform: scale(1.1);
+}
+
+#buttonMenu:hover img {
+    filter: brightness(90%);
+}
+
+#buttonMenu:active {
+    transform: scale(0.9);
+}
+
+.item:nth-child(3) { /* Content */
+    grid-area: main;
+    overflow-y: auto;
+}
+
+.item:nth-child(4) { /* Footer */
+    grid-area: footer;
+    justify-content: center;
+}
+
+.no-transition {
+    transition: none !important;
+}
