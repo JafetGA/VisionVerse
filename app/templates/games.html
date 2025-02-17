@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+<div class="camera-container">
+    <video id="video" autoplay playsinline></video>
+    <div class="camera-controls">
+        <button id="startCamera" class="camera-button">Iniciar camara</button>
+        <button id="stopCamera" class="camera-button">Detener camara</button>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/camera.js') }}"></script>
+{% endblock %}

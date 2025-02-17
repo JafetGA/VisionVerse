@@ -1,35 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Encuentro de Ingenierías 2025</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-<div class="container">
-    <div class="item header-hidden">
-        <div class="show">
-            <button id="buttonMenuShow" type="button"><img src="{{ url_for('static', filename='img/icons/menu_icon.svg') }}" alt="menu" width="50"></button>
-        </div>
-        <div class="header-content">
-            <img src="{{ url_for('static', filename='img/Logo_encuentro_de_ing_2025_.png') }}" alt="Encuentro">
-        </div>
-    </div>
-    <div class="item menu">
-        <div class="hidden">
-            <button id="buttonMenu" type="button"><img src="{{ url_for('static', filename='img/icons/menu_icon.svg') }}" alt="menu" width="50"></button>
-        </div>
-        <div class="games">
-            <a href="#">Game example</a>
-            <a href="#">Game example</a>
-            <a href="#">Game example</a>
-            <a href="#">Game example</a>
-            <a href="#">Game example</a>
-        </div>
-    </div>
-    <div class="item">Content</div>
-    <div class="item">Footer</div>
-</div>
-    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Encuentro de Ingenierías 2025{% endblock %}
+
+{% block content %}
+Content
+{% endblock %}

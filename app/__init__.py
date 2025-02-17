@@ -1,8 +1,13 @@
 from flask import Flask
-def create_app():
-    app = Flask(__name__)
+from flask_cors import CORS
 
-    from app.routes import main
+def create_app():
+
+    app = Flask(__name__)
+    CORS(app)
+
+    from app.routes import main, game
     app.register_blueprint(main)
+    app.register_blueprint(game)
 
     return app

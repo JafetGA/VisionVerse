@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Encuentro de Ingenierías 2025{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="item header-hidden">
+        <div class="show">
+            <button id="buttonMenuShow" type="button"><img src="{{ url_for('static', filename='img/icons/menu_icon.svg') }}" alt="menu" width="50"></button>
+        </div>
+        <div class="header-content">
+            <img id="logo-header" src="{{ url_for('static', filename='img/Logo_encuentro_de_ing_2025_.png') }}" alt="Encuentro">
+        </div>
+    </div>
+    <div class="item menu">
+        <div class="hidden">
+            <img src="{{ url_for('static', filename='img/Logo_encuentro_de_ing_2025_.png') }}" alt="Encuentro" height="60">
+            <button id="buttonMenu" type="button"><img src="{{ url_for('static', filename='img/icons/menu_icon.svg') }}" alt="menu" width="50"></button>
+        </div>
+        <div class="games">
+            <a href="#">Game example</a>
+            <a href="#">Game example</a>
+            <a href="#">Game example</a>
+            <a href="#">Game example</a>
+            <a href="#">Game example</a>
+        </div>
+    </div>
+    <div class="item content">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="item footer">
+        <img src="{{ url_for('static', filename='img/logoLuminisoft.svg') }}" alt="Luminisoft" height="40">
+        <p>Todos los derechos reservados a Luminisoft y UPAEP Encuentro de Ingenierías 2025</p>
+    </div>
+</div>
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
