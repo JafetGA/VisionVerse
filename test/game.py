@@ -7,14 +7,20 @@ import time
 from math import sqrt
 from mediapipe.python.solutions.drawing_utils import DrawingSpec
 
+# Configuración de la cámara
+CAMERA = cv2.VideoCapture(1)
+
 # Configuración de velocidades
 MOVEMENT_SPEED = 6.0
 MIN_CHANGE_INTERVAL = 0.3
 MAX_CHANGE_INTERVAL = 1.5
 REAPPEAR_DELAY = 1.0  # Tiempo antes de que reaparezca una imagen
 INITIAL_DIRECTION = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, 1), (1, -1), (-1, -1)]
-GAME_DURATION = 20  # Duración del juego en segundos
 
+# Duración del juego en segundos
+GAME_DURATION = 20  
+
+# Diccionario de imágenes
 valores = {
     '1.png': 'Rojo',
     '2.png': 'Azul',
@@ -143,7 +149,6 @@ class MovingImage:
 
 def load_overlay_images(directory, desired_size=(100, 100)):
     images = {}
-    valid_extensions = ['.png', '.jpg', '.jpeg', '.gif']
     color_files = ['1.png', '2.png', '3.png', '4.png', '5.png']
 
     try:
@@ -191,9 +196,8 @@ def overlay_image(background, foreground, position):
 def main():
     global frame_width, frame_height, overlays
 
-    num_images = 5  # Usar solo 5 imágenes
 
-    cap = cv2.VideoCapture(0)
+    cap = CAMERA
     detector = HandDetector()
 
     if not cap.isOpened():
